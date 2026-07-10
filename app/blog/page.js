@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock, Newspaper } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { BLOG_POSTS, getBlogPostPath } from "@/lib/blog";
-import { BRAND_NAME } from "@/lib/site";
+import { BRAND_NAME, toSiteUrl, withBasePath } from "@/lib/site";
 import styles from "./blog.module.css";
 
 export const metadata = {
@@ -11,13 +11,13 @@ export const metadata = {
   description:
     "Read Dental Square articles about whitening, children's dental visits, braces care, and everyday oral health habits.",
   alternates: {
-    canonical: "/blog",
+    canonical: toSiteUrl("/blog"),
   },
   openGraph: {
     title: `Dental Tips & Insights | ${BRAND_NAME}`,
     description:
       "Helpful dental guides from Dental Square for brighter, healthier smiles.",
-    url: "/blog",
+    url: toSiteUrl("/blog"),
     type: "website",
   },
 };
@@ -50,7 +50,7 @@ export default function BlogIndexPage() {
           <Link className={styles.featuredPost} href={getBlogPostPath(featuredPost.slug)}>
             <div className={styles.featuredImage}>
               <Image
-                src={featuredPost.image}
+                src={withBasePath(featuredPost.image)}
                 alt={featuredPost.imageAlt}
                 fill
                 preload
@@ -81,7 +81,7 @@ export default function BlogIndexPage() {
               <article className={styles.postCard} key={post.slug}>
                 <Link className={styles.cardImage} href={getBlogPostPath(post.slug)}>
                   <Image
-                    src={post.image}
+                    src={withBasePath(post.image)}
                     alt={post.imageAlt}
                     fill
                     sizes="(max-width: 760px) 92vw, 380px"

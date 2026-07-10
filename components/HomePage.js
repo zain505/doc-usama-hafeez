@@ -28,6 +28,7 @@ import {
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { withBasePath } from "@/lib/site";
 import Button from "./Button";
 import Navbar from "./Navbar";
 import SectionBadge from "./SectionBadge";
@@ -83,6 +84,9 @@ export default function HomePage() {
     "https://www.google.com/maps/search/?api=1&query=Dental%20Square%20by%20Dr%20Usama%20Hafeez%20and%20Dr%20Raham%20Umar%2C%2029.3899429%2C%2071.6751325";
   const googleMapsDirectionsUrl =
     "https://www.google.com/maps/dir/?api=1&destination=29.3899429%2C71.6751325";
+  const heroClinicImage = withBasePath("/images/dental/hero-clinic.png");
+  const toothShieldImage = withBasePath("/images/dental/tooth-shield.png");
+  const doctorPortraitImage = withBasePath("/images/dental/about-dentist-portrait.jpg");
 
   const heroFeatures = [
     { icon: ShieldCheck, label: t("hero.advanced") },
@@ -164,7 +168,7 @@ export default function HomePage() {
       read: t("blogs.readA"),
       title: t("blogs.postATitle"),
       copy: t("blogs.postACopy"),
-      image: "/images/dental/blog-whitening.png",
+      image: withBasePath("/images/dental/blog-whitening.png"),
       href: "/blog/5-tips-for-brighter-whiter-smile",
       icon: Smile,
     },
@@ -174,7 +178,7 @@ export default function HomePage() {
       read: t("blogs.readB"),
       title: t("blogs.postBTitle"),
       copy: t("blogs.postBCopy"),
-      image: "/images/dental/blog-kids.png",
+      image: withBasePath("/images/dental/blog-kids.png"),
       href: "/blog/make-dental-visits-fun-for-kids",
       icon: Heart,
     },
@@ -184,7 +188,7 @@ export default function HomePage() {
       read: t("blogs.readC"),
       title: t("blogs.postCTitle"),
       copy: t("blogs.postCCopy"),
-      image: "/images/dental/blog-braces.png",
+      image: withBasePath("/images/dental/blog-braces.png"),
       href: "/blog/braces-care-clean-healthy-smile",
       icon: BadgeCheck,
     },
@@ -233,7 +237,7 @@ export default function HomePage() {
           <div className={styles.heroWave} aria-hidden="true" />
           <div className={styles.heroImage} aria-hidden="true">
             <Image
-              src="/images/dental/hero-clinic.png"
+              src={heroClinicImage}
               alt=""
               fill
               preload
@@ -280,7 +284,7 @@ export default function HomePage() {
 
             <div className={styles.heroTooth} aria-hidden="true">
               <Image
-                src="/images/dental/tooth-shield.png"
+                src={toothShieldImage}
                 alt=""
                 width={420}
                 height={420}
@@ -329,7 +333,7 @@ export default function HomePage() {
           </div>
 
           <div className={styles.sectionTooth} aria-hidden="true">
-            <Image src="/images/dental/tooth-shield.png" alt="" width={210} height={210} />
+            <Image src={toothShieldImage} alt="" width={210} height={210} />
           </div>
         </section>
 
@@ -338,7 +342,7 @@ export default function HomePage() {
             <div className={styles.aboutVisual} aria-hidden="true">
               <div className={styles.doctorFrame}>
                 <Image
-                  src="/images/dental/about-dentist-portrait.jpg"
+                  src={doctorPortraitImage}
                   alt=""
                   fill
                   sizes="(max-width: 900px) 82vw, 520px"
@@ -347,7 +351,7 @@ export default function HomePage() {
               </div>
               <Image
                 className={styles.aboutTooth}
-                src="/images/dental/tooth-shield.png"
+                src={toothShieldImage}
                 alt=""
                 width={240}
                 height={240}
@@ -494,7 +498,7 @@ export default function HomePage() {
 
           <div className={styles.pricingTooth} aria-hidden="true">
             <Image
-              src="/images/dental/tooth-shield.png"
+              src={toothShieldImage}
               alt=""
               width={340}
               height={340}
@@ -741,7 +745,7 @@ export default function HomePage() {
 
           <div className={styles.footerTooth} aria-hidden="true">
             <Image
-              src="/images/dental/tooth-shield.png"
+              src={toothShieldImage}
               alt=""
               width={250}
               height={250}

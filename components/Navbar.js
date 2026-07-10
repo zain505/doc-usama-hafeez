@@ -12,6 +12,7 @@ import {
 import { useTranslation } from "react-i18next";
 import Button from "./Button";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { withBasePath } from "@/lib/site";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
@@ -24,7 +25,7 @@ const navLinks = [
 ];
 
 const withHomePrefix = (homeHrefPrefix, href) =>
-  href.startsWith("#") ? `${homeHrefPrefix}${href}` : href;
+  withBasePath(href.startsWith("#") ? `${homeHrefPrefix}${href}` : href);
 
 function Brand({ homeHrefPrefix = "" }) {
   const { t } = useTranslation();

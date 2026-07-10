@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/site";
+import { SITE_ORIGIN, SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -9,6 +9,6 @@ export default function robots() {
       allow: "/",
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    host: SITE_ORIGIN,
   };
 }

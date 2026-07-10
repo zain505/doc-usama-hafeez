@@ -28,7 +28,7 @@ export const metadata = {
     "emergency dentistry",
   ],
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
   },
   openGraph: {
     title: `${BRAND_NAME} | Exceptional Dentistry`,

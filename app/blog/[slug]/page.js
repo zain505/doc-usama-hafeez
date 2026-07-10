@@ -15,7 +15,7 @@ import {
   getBlogPostPath,
   getRelatedPosts,
 } from "@/lib/blog";
-import { BRAND_NAME, SITE_URL } from "@/lib/site";
+import { BRAND_NAME, toSiteUrl, withBasePath } from "@/lib/site";
 import styles from "../blog.module.css";
 
 export const dynamicParams = false;
@@ -36,21 +36,24 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const postUrl = toSiteUrl(getBlogPostPath(post.slug));
+  const postImageUrl = toSiteUrl(post.image);
+
   return {
     title: post.title,
     description: post.seoDescription,
     alternates: {
-      canonical: getBlogPostPath(post.slug),
+      canonical: postUrl,
     },
     openGraph: {
       title: `${post.title} | ${BRAND_NAME}`,
       description: post.seoDescription,
-      url: getBlogPostPath(post.slug),
+      url: postUrl,
       type: "article",
       publishedTime: post.dateISO,
       images: [
         {
-          url: post.image,
+          url: postImageUrl,
           alt: post.imageAlt,
         },
       ],
@@ -59,7 +62,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: post.title,
       description: post.seoDescription,
-      images: [post.image],
+      images: [postImageUrl],
     },
   };
 }
@@ -73,12 +76,13 @@ export default async function BlogPostPage({ params }) {
   }
 
   const relatedPosts = getRelatedPosts(post.slug);
+  const postImage = withBasePath(post.image);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.seoDescription,
-    image: new URL(post.image, SITE_URL).toString(),
+    image: toSiteUrl(post.image),
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     author: {
@@ -89,7 +93,7 @@ export default async function BlogPostPage({ params }) {
       "@type": "Organization",
       name: BRAND_NAME,
     },
-    mainEntityOfPage: new URL(getBlogPostPath(post.slug), SITE_URL).toString(),
+    mainEntityOfPage: toSiteUrl(getBlogPostPath(post.slug)),
   };
 
   return (
@@ -130,7 +134,7 @@ export default async function BlogPostPage({ params }) {
 
               <div className={styles.articleHeroImage}>
                 <Image
-                  src={post.image}
+                  src={postImage}
                   alt={post.imageAlt}
                   fill
                   preload
