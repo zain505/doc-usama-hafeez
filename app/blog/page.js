@@ -53,7 +53,7 @@ export default function BlogIndexPage() {
                 src={featuredPost.image}
                 alt={featuredPost.imageAlt}
                 fill
-                priority
+                preload
                 sizes="(max-width: 920px) 92vw, 560px"
                 className={styles.fillImage}
               />

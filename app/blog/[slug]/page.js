@@ -133,7 +133,7 @@ export default async function BlogPostPage({ params }) {
                   src={post.image}
                   alt={post.imageAlt}
                   fill
-                  priority
+                  preload
                   sizes="(max-width: 920px) 92vw, 560px"
                   className={styles.fillImage}
                 />

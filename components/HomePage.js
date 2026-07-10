@@ -236,7 +236,7 @@ export default function HomePage() {
               src="/images/dental/hero-clinic.png"
               alt=""
               fill
-              priority
+              preload
               sizes="100vw"
               className={styles.fillImage}
             />
