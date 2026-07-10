@@ -1,0 +1,513 @@
+.page {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, #f7fcff 0%, #ffffff 44%, #f6fbfd 100%);
+}
+
+.section {
+  width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.fillImage {
+  object-fit: cover;
+}
+
+.indexHero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  align-items: center;
+  gap: 42px;
+  padding: 62px 0 78px;
+}
+
+.indexHeroCopy {
+  display: grid;
+  align-content: center;
+  gap: 22px;
+}
+
+.kicker,
+.categoryPill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--teal);
+  background: var(--teal-soft);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.indexHeroCopy h1,
+.articleHeroCopy h1 {
+  max-width: 720px;
+  color: var(--navy);
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 66px;
+}
+
+.indexHeroCopy p,
+.articleHeroCopy p {
+  max-width: 650px;
+  color: #536173;
+  font-size: 20px;
+  line-height: 34px;
+}
+
+.primaryCta,
+.secondaryCta,
+.readMore {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.primaryCta {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal), #068da2);
+  box-shadow: 0 16px 34px rgba(10, 162, 183, 0.24);
+}
+
+.secondaryCta,
+.readMore {
+  border: 1px solid rgba(12, 155, 168, 0.5);
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.primaryCta:hover,
+.secondaryCta:hover,
+.readMore:hover {
+  transform: translateY(-2px);
+}
+
+.featuredPost {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+
+.featuredImage {
+  position: relative;
+  min-height: 330px;
+  background: #eaf8fb;
+}
+
+.featuredCopy {
+  display: grid;
+  gap: 12px;
+  padding: 26px;
+}
+
+.featuredCopy > span:first-child,
+.cardMeta > span:first-child,
+.relatedCard span {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--teal);
+  background: var(--teal-soft);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.featuredCopy h2 {
+  color: var(--navy);
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.featuredCopy p {
+  color: #536173;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--teal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.articleList {
+  padding: 24px 0 88px;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.sectionHeader h2 {
+  color: var(--navy);
+  font-size: 42px;
+  line-height: 52px;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.postCard {
+  display: grid;
+  align-content: start;
+  gap: 17px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 16px 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+
+.cardImage {
+  position: relative;
+  min-height: 214px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eaf8fb;
+}
+
+.cardMeta,
+.articleMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: #687386;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.cardMeta span,
+.articleMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.postCard h3 {
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.postCard h3 a:hover {
+  color: var(--teal);
+}
+
+.postCard p {
+  color: #536173;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.readMore {
+  margin-top: auto;
+}
+
+.readMore svg,
+.secondaryCta svg {
+  color: var(--teal);
+}
+
+.articleHero {
+  padding: 48px 0 54px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  color: var(--teal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.articleHeroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  align-items: center;
+  gap: 42px;
+}
+
+.articleHeroCopy {
+  display: grid;
+  gap: 18px;
+}
+
+.articleHeroImage {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eaf8fb;
+  box-shadow: var(--shadow-soft);
+}
+
+.readerWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(260px, 330px);
+  align-items: start;
+  gap: 48px;
+  padding-bottom: 96px;
+}
+
+.articleBody {
+  display: grid;
+  gap: 34px;
+}
+
+.articleSection {
+  display: grid;
+  gap: 16px;
+}
+
+.articleSection h2,
+.articleCta h2,
+.relatedPanel h2 {
+  color: var(--navy);
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.articleSection p,
+.articleCta p {
+  color: #374151;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.articleSection ul {
+  display: grid;
+  gap: 12px;
+  padding-inline-start: 22px;
+  color: #374151;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.articleSection li::marker {
+  color: var(--teal);
+}
+
+.articleCta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid rgba(12, 155, 168, 0.25);
+  border-radius: 8px;
+  padding: 26px;
+  background: #eefbfe;
+}
+
+.ctaActions {
+  display: grid;
+  justify-items: end;
+  gap: 12px;
+}
+
+.relatedPanel {
+  position: sticky;
+  top: 138px;
+  display: grid;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+
+.relatedList {
+  display: grid;
+  gap: 14px;
+}
+
+.relatedCard {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(216, 237, 243, 0.9);
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.relatedCard:hover strong {
+  color: var(--teal);
+}
+
+.relatedCard strong {
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.relatedCard small {
+  color: #687386;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+@media (max-width: 1080px) {
+  .indexHero,
+  .articleHeroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .indexHeroCopy h1,
+  .articleHeroCopy h1 {
+    max-width: 860px;
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  .featuredImage,
+  .articleHeroImage {
+    min-height: 380px;
+  }
+
+  .postGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .readerWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedPanel {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    width: min(100% - 32px, 1240px);
+  }
+
+  .indexHero {
+    padding: 42px 0 58px;
+  }
+
+  .articleHero {
+    padding: 36px 0 42px;
+  }
+
+  .indexHeroCopy h1,
+  .articleHeroCopy h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .indexHeroCopy p,
+  .articleHeroCopy p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .featuredImage,
+  .articleHeroImage {
+    min-height: 280px;
+  }
+
+  .featuredCopy,
+  .articleCta {
+    padding: 20px;
+  }
+
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader h2 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .articleSection h2,
+  .articleCta h2,
+  .relatedPanel h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .articleSection p,
+  .articleCta p {
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+  .articleCta {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaActions {
+    justify-items: stretch;
+  }
+
+  .primaryCta,
+  .secondaryCta,
+  .readMore {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .indexHeroCopy h1,
+  .articleHeroCopy h1 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .featuredImage,
+  .articleHeroImage,
+  .cardImage {
+    min-height: 230px;
+  }
+
+  .featuredCopy h2 {
+    font-size: 25px;
+    line-height: 34px;
+  }
+
+  .postCard h3 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
