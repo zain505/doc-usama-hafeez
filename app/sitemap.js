@@ -1,6 +1,8 @@
 import { BLOG_POSTS, getBlogPostPath } from "@/lib/blog";
 import { SITE_URL } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const buildUrl = (path) => new URL(path, SITE_URL).toString();
 
