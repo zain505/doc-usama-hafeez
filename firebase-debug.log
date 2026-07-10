@@ -1,0 +1,57 @@
+[debug] [2026-07-10T12:03:40.413Z] ----------------------------------------------------------------------
+[debug] [2026-07-10T12:03:40.416Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js use --project doc-usama-hafeez
+[debug] [2026-07-10T12:03:40.416Z] CLI Version:   15.22.4
+[debug] [2026-07-10T12:03:40.416Z] Platform:      win32
+[debug] [2026-07-10T12:03:40.416Z] Node Version:  v24.14.1
+[debug] [2026-07-10T12:03:40.416Z] Detected Agent: codex_cli
+[debug] [2026-07-10T12:03:40.416Z] Time:          Fri Jul 10 2026 17:03:40 GMT+0500 (Pakistan Standard Time)
+[debug] [2026-07-10T12:03:40.416Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-10T12:03:40.418Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-07-10T12:03:40.595Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-10T12:03:40.659Z] Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.
+    at GoogleAuth.getApplicationDefaultAsync (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:287:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async GoogleAuth._GoogleAuth_determineClient (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:834:32)
+    at async GoogleAuth.getClient (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:698:20)
+    at async GoogleAuth.getAccessToken (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:722:24)
+    at async autoAuth (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\requireAuth.js:38:19)
+    at async Object.requireAuth [as fn] (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\requireAuth.js:100:20)
+    at async C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\command.js:278:17
+[error] 
+[error] Error: Failed to authenticate, have you run firebase login?
+[debug] [2026-07-10T12:04:15.783Z] ----------------------------------------------------------------------
+[debug] [2026-07-10T12:04:15.786Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js login --no-localhost
+[debug] [2026-07-10T12:04:15.786Z] CLI Version:   15.22.4
+[debug] [2026-07-10T12:04:15.786Z] Platform:      win32
+[debug] [2026-07-10T12:04:15.786Z] Node Version:  v24.14.1
+[debug] [2026-07-10T12:04:15.786Z] Detected Agent: codex_cli
+[debug] [2026-07-10T12:04:15.786Z] Time:          Fri Jul 10 2026 17:04:15 GMT+0500 (Pakistan Standard Time)
+[debug] [2026-07-10T12:04:15.786Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-10T12:04:15.788Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[error] 
+[error] Error: Cannot run login in non-interactive mode. See login:ci to generate a token for use in non-interactive environments.
+[debug] [2026-07-10T12:04:37.590Z] ----------------------------------------------------------------------
+[debug] [2026-07-10T12:04:37.592Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting firestore storage --project doc-usama-hafeez
+[debug] [2026-07-10T12:04:37.592Z] CLI Version:   15.22.4
+[debug] [2026-07-10T12:04:37.592Z] Platform:      win32
+[debug] [2026-07-10T12:04:37.592Z] Node Version:  v24.14.1
+[debug] [2026-07-10T12:04:37.593Z] Detected Agent: codex_cli
+[debug] [2026-07-10T12:04:37.593Z] Time:          Fri Jul 10 2026 17:04:37 GMT+0500 (Pakistan Standard Time)
+[debug] [2026-07-10T12:04:37.593Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-10T12:04:37.595Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-07-10T12:04:38.782Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-10T12:04:38.829Z] Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.
+    at GoogleAuth.getApplicationDefaultAsync (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:287:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async GoogleAuth._GoogleAuth_determineClient (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:834:32)
+    at async GoogleAuth.getClient (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:698:20)
+    at async GoogleAuth.getAccessToken (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\node_modules\google-auth-library\build\src\auth\googleauth.js:722:24)
+    at async autoAuth (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\requireAuth.js:38:19)
+    at async requireAuth (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\requireAuth.js:100:20)
+    at async requirePermissions (C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\requirePermissions.js:17:5)
+    at async C:\Users\zain.rehman\AppData\Local\nvm\v24.14.1\node_modules\firebase-tools\lib\command.js:278:17
+[error] 
+[error] Error: Failed to authenticate, have you run firebase login?

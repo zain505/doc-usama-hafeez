@@ -14,6 +14,37 @@
   object-fit: cover;
 }
 
+.mediaImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.statePanel {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 56vh;
+  gap: 18px;
+  padding: 72px 0;
+}
+
+.statePanel h1 {
+  max-width: 760px;
+  color: var(--navy);
+  font-size: 48px;
+  line-height: 58px;
+}
+
+.statePanel p {
+  max-width: 620px;
+  color: #536173;
+  font-size: 19px;
+  line-height: 32px;
+}
+
 .indexHero {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);

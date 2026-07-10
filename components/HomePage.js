@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -28,6 +28,8 @@ import {
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { getPublicBlogPostPath, isRemoteUrl } from "@/lib/blog";
+import { getPublishedBlogPosts } from "@/lib/blogService";
 import { withBasePath } from "@/lib/site";
 import Button from "./Button";
 import Navbar from "./Navbar";
@@ -75,9 +77,48 @@ function SocialIconRail() {
   );
 }
 
+function getBlogImageSrc(src) {
+  return isRemoteUrl(src) ? src : withBasePath(src);
+}
+
+function getBlogIcon(category = "") {
+  const normalizedCategory = category.toLowerCase();
+
+  if (normalizedCategory.includes("pediatric") || normalizedCategory.includes("kid")) {
+    return Heart;
+  }
+
+  if (normalizedCategory.includes("ortho") || normalizedCategory.includes("brace")) {
+    return BadgeCheck;
+  }
+
+  return Smile;
+}
+
 export default function HomePage() {
   const { t } = useTranslation();
   const [activePlanIndex, setActivePlanIndex] = useState(1);
+  const [cmsBlogCards, setCmsBlogCards] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+
+    getPublishedBlogPosts(3)
+      .then((posts) => {
+        if (active) {
+          setCmsBlogCards(posts);
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setCmsBlogCards([]);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
   const googleMapsEmbedUrl =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.328566034792!2d71.6751325!3d29.389942899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b910075a5998b%3A0x24bc47c24ed2a986!2sDental%20Square%20by%20Dr%20Usama%20Hafeez%20and%20Dr%20Raham%20Umar!5e0!3m2!1sen!2s!4v1783489160475!5m2!1sen!2s";
   const googleMapsPlaceUrl =
@@ -161,14 +202,15 @@ export default function HomePage() {
     setActivePlanIndex((currentIndex) => wrapPlanIndex(currentIndex + 1));
   };
 
-  const blogCards = [
+  const fallbackBlogCards = [
     {
       category: t("blogs.cosmetic"),
       date: t("blogs.dateA"),
       read: t("blogs.readA"),
       title: t("blogs.postATitle"),
       copy: t("blogs.postACopy"),
-      image: withBasePath("/images/dental/blog-whitening.png"),
+      image: getBlogImageSrc("/images/dental/blog-whitening.png"),
+      imageAlt: "",
       href: "/blog/5-tips-for-brighter-whiter-smile",
       icon: Smile,
     },
@@ -178,7 +220,8 @@ export default function HomePage() {
       read: t("blogs.readB"),
       title: t("blogs.postBTitle"),
       copy: t("blogs.postBCopy"),
-      image: withBasePath("/images/dental/blog-kids.png"),
+      image: getBlogImageSrc("/images/dental/blog-kids.png"),
+      imageAlt: "",
       href: "/blog/make-dental-visits-fun-for-kids",
       icon: Heart,
     },
@@ -188,11 +231,25 @@ export default function HomePage() {
       read: t("blogs.readC"),
       title: t("blogs.postCTitle"),
       copy: t("blogs.postCCopy"),
-      image: withBasePath("/images/dental/blog-braces.png"),
+      image: getBlogImageSrc("/images/dental/blog-braces.png"),
+      imageAlt: "",
       href: "/blog/braces-care-clean-healthy-smile",
       icon: BadgeCheck,
     },
   ];
+  const blogCards = cmsBlogCards.length
+    ? cmsBlogCards.map((post) => ({
+        category: post.category,
+        date: post.date,
+        read: post.readTime,
+        title: post.title,
+        copy: post.excerpt,
+        image: getBlogImageSrc(post.image),
+        imageAlt: post.imageAlt,
+        href: getPublicBlogPostPath(post),
+        icon: getBlogIcon(post.category),
+      }))
+    : fallbackBlogCards;
 
   const hoursSchedule = t("contact.hoursSchedule", { returnObjects: true });
   const contactHours = Array.isArray(hoursSchedule) ? hoursSchedule : [];
@@ -527,7 +584,13 @@ export default function HomePage() {
               return (
                 <article className={styles.blogCard} key={post.title}>
                   <div className={styles.blogImageWrap}>
-                    <Image src={post.image} alt="" fill sizes="(max-width: 900px) 90vw, 390px" className={styles.fillImage} />
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt}
+                      fill
+                      sizes="(max-width: 900px) 90vw, 390px"
+                      className={styles.blogMedia}
+                    />
                     <span className={styles.blogIcon}>
                       <Icon size={28} aria-hidden="true" />
                     </span>

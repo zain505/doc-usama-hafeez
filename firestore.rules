@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function validBlogPost(slug) {
+      return request.resource.data.keys().hasOnly([
+          "slug",
+          "title",
+          "excerpt",
+          "category",
+          "status",
+          "readTime",
+          "seoDescription",
+          "imageAlt",
+          "coverImageUrl",
+          "coverImagePath",
+          "body",
+          "bodyMarkdown",
+          "createdAt",
+          "updatedAt",
+          "publishedAt"
+        ])
+        && request.resource.data.slug == slug
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.excerpt is string
+        && request.resource.data.category is string
+        && (request.resource.data.status == "draft" || request.resource.data.status == "published");
+    }
+
+    match /admins/{userId} {
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow write: if false;
+    }
+
+    match /blogPosts/{slug} {
+      allow read: if isAdmin() || resource.data.status == "published";
+      allow create, update: if isAdmin() && validBlogPost(slug);
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

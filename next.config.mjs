@@ -17,6 +17,16 @@ const nextConfig = {
   ...(basePath ? { basePath } : {}),
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.firebasestorage.app",
+      },
+    ],
   },
 };
 
